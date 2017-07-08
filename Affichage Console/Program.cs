@@ -24,7 +24,7 @@ namespace Affichage_Console
            
             if (path == null)
             {
-                Console.WriteLine("Le path est null");
+                Console.WriteLine("Le path est null test");
             }
             else
             {
