@@ -38,7 +38,9 @@ namespace LogiqueMetier
         public List<Chemin> exploreNewChemin(Dictionary<Coordonnee, List<Vecteur>> graph)
         {
             int lastindex = listeCoor.Count - 1;
-            List<Vecteur> pointsAutour = graph[listeCoor[lastindex]];
+
+            Coordonnee temp = listeCoor[lastindex];
+            List<Vecteur> pointsAutour = graph[temp];
 
             List<Chemin> resChemin = new List<Chemin>();
 

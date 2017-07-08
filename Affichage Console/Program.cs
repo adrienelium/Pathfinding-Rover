@@ -12,18 +12,11 @@ namespace Affichage_Console
     {
         static void Main(string[] args)
         {
-            GraphGenerator gl = new GraphGenerator(3,3,0);
+            GraphGenerator gl = new GraphGenerator(8,8,15);
             displayArrayBool(gl.tabInitial);
 
-            Pathfinding dif = new Pathfinding();
-            Chemin path = dif.Chemin_Le_Plus_Cours(
-                new Coordonnee() { x = 1, y = 0 },
-                new Coordonnee() { x = 1, y = 2 }, 
-                gl.graph
-                );
-
-
-            foreach (KeyValuePair<Coordonnee,List<Vecteur>> obj in gl.graph)
+            Console.WriteLine("Nombre Total de Noeud : " + gl.graph.Count);
+            foreach (KeyValuePair<Coordonnee, List<Vecteur>> obj in gl.graph)
             {
                 Console.WriteLine("Le point X=" + obj.Key.x + " , Y=" + obj.Key.y);
 
@@ -34,6 +27,15 @@ namespace Affichage_Console
 
                 Console.WriteLine();
             }
+
+            Pathfinding dif = new Pathfinding();
+            Chemin path = dif.Chemin_Le_Plus_Cours(
+                new Coordonnee() { x = 0, y = 0 },
+                new Coordonnee() { x = 7, y = 6 }, 
+                gl.graph
+                );
+
+           
            
             if (path == null)
             {

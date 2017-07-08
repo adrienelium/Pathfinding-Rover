@@ -34,7 +34,7 @@ namespace LogiqueMetier
                 if (chem.isFinishIsReach(finish))
                 {
                     resultat.Add(chem);
-                    continue;
+                    break;
                 }
 
 
