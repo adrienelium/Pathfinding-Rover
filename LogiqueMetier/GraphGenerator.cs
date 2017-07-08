@@ -159,8 +159,10 @@ namespace LogiqueMetier
 
         private void add_vertex(Coordonnee name, Vecteur edges)
         {
-            if (graph[name].Count == 0)
+            if (!graph.ContainsKey(name))
+            {
                 graph[name] = new List<Vecteur>() { edges };
+            }
             else
             {
                 List<Vecteur> listEnCours = graph[name];

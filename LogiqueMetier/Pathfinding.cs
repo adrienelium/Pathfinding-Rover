@@ -7,7 +7,7 @@ namespace LogiqueMetier
 {
     public class Pathfinding
     {
-
+        Chemin initialChemin;
 
         public Chemin Chemin_Le_Plus_Cours(Coordonnee start, Coordonnee finish, Dictionary<Coordonnee, List<Vecteur>> graph)
         {
@@ -19,20 +19,24 @@ namespace LogiqueMetier
 
             List<Chemin> listeDeChemin = new List<Chemin>();
 
-            Chemin initialChemin = new Chemin();
+            initialChemin = new Chemin();
             initialChemin.AddCoordonnee(start,0);
             listeDeChemin.Add(initialChemin);
 
             List<Chemin> resultat = new List<Chemin>();
 
-            foreach(Chemin chem in listeDeChemin)
+            for (int i = 0; i < listeDeChemin.Count; i++)
             {
+                Chemin chem = listeDeChemin[i];
+
+                
+
                 if (chem.isFinishIsReach(finish))
                 {
                     resultat.Add(chem);
                     continue;
                 }
-                    
+
 
                 List<Chemin> newchemins = chem.exploreNewChemin(graph);
 
@@ -48,7 +52,15 @@ namespace LogiqueMetier
 
         private Chemin GetMinimalCheminValue(List<Chemin> resultat)
         {
-            Chemin res = resultat[0];
+            Chemin res;
+            try
+            {
+                res = resultat[0];
+            } catch (System.Exception)
+            {
+                return initialChemin;
+            }
+            
             foreach (Chemin chem in resultat)
             {
                 if (chem.totalPonderation < res.totalPonderation)

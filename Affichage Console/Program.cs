@@ -12,15 +12,28 @@ namespace Affichage_Console
     {
         static void Main(string[] args)
         {
-            GraphGenerator gl = new GraphGenerator(5,5,0);
+            GraphGenerator gl = new GraphGenerator(3,3,0);
             displayArrayBool(gl.tabInitial);
 
             Pathfinding dif = new Pathfinding();
-            List<Coordonnee> path = dif.shortest_path(
-                new Coordonnee() { x = 0, y = 0 },
-                new Coordonnee() { x = 3, y = 4 }, 
+            Chemin path = dif.Chemin_Le_Plus_Cours(
+                new Coordonnee() { x = 1, y = 0 },
+                new Coordonnee() { x = 1, y = 2 }, 
                 gl.graph
                 );
+
+
+            foreach (KeyValuePair<Coordonnee,List<Vecteur>> obj in gl.graph)
+            {
+                Console.WriteLine("Le point X=" + obj.Key.x + " , Y=" + obj.Key.y);
+
+                foreach (Vecteur vec in obj.Value)
+                {
+                    Console.WriteLine("Est relier au point X=" + vec.coor.x + " , Y=" + vec.coor.y + " avec une pondération de " + vec.ponderation);
+                }
+
+                Console.WriteLine();
+            }
            
             if (path == null)
             {
@@ -28,7 +41,7 @@ namespace Affichage_Console
             }
             else
             {
-                foreach (Coordonnee coor in path)
+                foreach (Coordonnee coor in path.listeCoor)
                 {
                     Console.WriteLine("Point : X=" + coor.x + " , Y=" + coor.y);
                 }
