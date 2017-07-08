@@ -159,7 +159,14 @@ namespace LogiqueMetier
 
         private void add_vertex(Coordonnee name, Vecteur edges)
         {
-            graph[name] = edges;
+            if (graph[name].Count == 0)
+                graph[name] = new List<Vecteur>() { edges };
+            else
+            {
+                List<Vecteur> listEnCours = graph[name];
+                listEnCours.Add(edges);
+                graph[name] = listEnCours;
+            }
         }
     }
 

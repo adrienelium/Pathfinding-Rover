@@ -21,13 +21,27 @@ namespace LogiqueMetier
 
         public bool isFinishIsReach(Coordonnee finish)
         {
-            throw new NotImplementedException();
+            return listeCoor.Contains(finish);
         }
 
         public List<Chemin> exploreNewChemin(Dictionary<Coordonnee, List<Vecteur>> graph)
         {
             int lastindex = listeCoor.Count - 1;
-            List<Vecteur> pointAutour = graph[listeCoor[lastindex]];
+            List<Vecteur> pointsAutour = graph[listeCoor[lastindex]];
+
+            List<Chemin> resChemin = new List<Chemin>();
+
+            foreach (Vecteur vec in pointsAutour)
+            {
+                if (!listeCoor.Contains(vec.coor)) // Si cette coordonnée ne fait pas partie du chemin actuel
+                {
+                    Chemin chem = this;
+                    chem.AddCoordonnee(vec.coor, vec.ponderation);
+                    resChemin.Add(chem);
+                }
+            }
+
+            return resChemin;
         }
     }
 
