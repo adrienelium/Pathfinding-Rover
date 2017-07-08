@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chemin.cs" />
     <Compile Include="GraphGenerator.cs" />
     <Compile Include="Pathfinding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

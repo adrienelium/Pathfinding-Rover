@@ -13,11 +13,11 @@ namespace LogiqueMetier
         int sizeY;
         int pourcentageObstacle;
 
-        public Dictionary<Coordonnee, Vecteur> graph { get; set; }
+        public Dictionary<Coordonnee, List<Vecteur>> graph { get; set; }
 
         public GraphGenerator(int sizeX, int sizeY, int pourcentageObstacle)
         {
-            graph = new Dictionary<Coordonnee, Vecteur>();
+            graph = new Dictionary<Coordonnee, List<Vecteur>>();
 
             this.sizeX = sizeX;
             this.sizeY = sizeY;
