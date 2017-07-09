@@ -43,7 +43,8 @@ namespace LogiqueMetier
                     }
                     else
                     {
-                        tabInitial[i, j] = false;
+                        //tabInitial[i, j] = false;
+                        tabInitial[i, j] = true;
                     }
                     
                 }
