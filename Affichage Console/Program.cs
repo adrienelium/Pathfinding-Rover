@@ -12,7 +12,7 @@ namespace Affichage_Console
     {
         static void Main(string[] args)
         {
-            GraphGenerator gl = new GraphGenerator(8,8,15);
+            GraphGenerator gl = new GraphGenerator(20,20,15);
             displayArrayBool(gl.tabInitial);
 
             Console.WriteLine("Nombre Total de Noeud : " + gl.graph.Count);
@@ -31,7 +31,7 @@ namespace Affichage_Console
             Pathfinding dif = new Pathfinding();
             Chemin path = dif.Chemin_Le_Plus_Cours(
                 new Coordonnee() { x = 0, y = 0 },
-                new Coordonnee() { x = 7, y = 6 }, 
+                new Coordonnee() { x = 15, y = 10 }, 
                 gl.graph
                 );
 

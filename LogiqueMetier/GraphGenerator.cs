@@ -43,8 +43,8 @@ namespace LogiqueMetier
                     }
                     else
                     {
-                        //tabInitial[i, j] = false;
-                        tabInitial[i, j] = true;
+                        tabInitial[i, j] = false;
+                        //tabInitial[i, j] = true;
                     }
                     
                 }
@@ -53,13 +53,13 @@ namespace LogiqueMetier
 
         private void generateGraph()
         {
-            for (int i = 0; i < sizeY; i++)
+            for (int y = 0; y < sizeY; y++)
             {
-                for (int j = 0; j < sizeX; j++)
+                for (int x = 0; x < sizeX; x++)
                 {
-                    if (tabInitial[i, j])
+                    if (tabInitial[x, y])
                     {
-                        Coordonnee pointActuel = new Coordonnee() { x = j, y = i };
+                        Coordonnee pointActuel = new Coordonnee() { x = x, y = y };
 
                         foreach(Vecteur vec in getNoeudAutour(pointActuel))
                         {
